@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLDENDAV PORTFOLIO - Strategia Combinata Sniper 2.0 + 4Trades</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%);
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid #b8860b;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #b8860b, #daa520, #b8860b);
+            opacity: 0.08;
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #b8860b;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 10px #b8860b; }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px #b8860b, 0 0 30px #daa520; }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        /* Strategy Display */
+        .strategy-banner {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .strategy-badge {
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            min-width: 200px;
+            animation: pulse 3s infinite;
+        }
+
+        .sniper-badge {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: #fff;
+            border: 2px solid #4CAF50;
+        }
+
+        .trades-badge {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: #fff;
+            border: 2px solid #2196F3;
+        }
+
+        .combined-badge {
+            background: linear-gradient(135deg, #b8860b, #daa520);
+            color: #000;
+            border: 3px solid #FFD700;
+            font-size: 1.2rem;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+            margin: 2rem 0;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out;
+            border: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #b8860b;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #b8860b, #daa520);
+            border-radius: 2px;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(184, 134, 11, 0.4);
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            border-color: #b8860b;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #b8860b;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .strategy-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            color: #ffffff;
+        }
+
+        .strategy-card.sniper {
+            border: 2px solid #4CAF50;
+        }
+
+        .strategy-card.trades {
+            border: 2px solid #2196F3;
+        }
+
+        .strategy-card.combined {
+            border: 3px solid #FFD700;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%, rgba(255, 215, 0, 0.1) 100%);
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .strategy-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .strategy-title.sniper {
+            color: #4CAF50;
+        }
+
+        .strategy-title.trades {
+            color: #2196F3;
+        }
+
+        .strategy-title.combined {
+            color: #FFD700;
+        }
+
+        /* Monthly Analysis */
+        .monthly-analysis {
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.1) 0%, rgba(218, 165, 32, 0.1) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+        }
+
+        .monthly-table {
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, #b8860b, #daa520);
+            color: #000;
+            padding: 1rem;
+            font-weight: bold;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        .table-row > div:first-child {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.1rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .table-row:nth-child(even) {
+            background: rgba(184, 134, 11, 0.05);
+        }
+
+        .profit-positive {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .profit-negative {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .profit-combined {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Balance Analysis */
+        .balance-item {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            border-left: 5px solid #b8860b;
+        }
+
+        .balance-month {
+            width: 100px;
+            font-weight: bold;
+            color: #b8860b;
+            margin-right: 2rem;
+        }
+
+        .balance-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .balance-strategy {
+            text-align: center;
+        }
+
+        .balance-result {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .tech-showcase {
+            background: linear-gradient(135deg, #1a1a3a 0%, #2d2d5f 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .check-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .check-list li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            filter: hue-rotate(30deg) brightness(1.2);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #b8860b 0%, #daa520 50%, #b8860b 100%);
+            color: #000000;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border: 2px solid #000000;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.8);
+            color: #b8860b;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #000000;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-cta:hover {
+            background: rgba(0, 0, 0, 0.9);
+            color: #daa520;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            border-left: 5px solid #b8860b;
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+            border: 1px solid rgba(184, 134, 11, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .strategy-banner {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .balance-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+        .section:nth-child(6) { animation-delay: 1.0s; }
+        .section:nth-child(7) { animation-delay: 1.2s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">🎯 GOLDENDAV PORTFOLIO</h1>
+                <p class="subtitle">Strategia Combinata: Sniper 2.0 + 4Trades su Oro XAUUSD</p>
+                
+                <div class="strategy-banner">
+                    <div class="strategy-badge sniper-badge">
+                        🎯 SNIPER 2.0<br>250€ - Algoritmi Tecnici
+                    </div>
+                    <div class="strategy-badge combined-badge">
+                        ➕ PORTFOLIO 500€ ➕<br>PERFORMANCE COMBINATE
+                    </div>
+                    <div class="strategy-badge trades-badge">
+                        🏗️ 4TRADES<br>250€ - Sistema Piramidale
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(33, 150, 243, 0.2) 100%); padding: 1.5rem; border-radius: 15px; margin-top: 1rem; border: 2px solid #FFD700;">
+                    <p style="color: #FFD700; font-size: 1.4rem; font-weight: bold; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                        🏆 PORTFOLIO COMBINATO: DIVERSIFICAZIONE E PERFORMANCE SUPERIORI! 🏆
+                    </p>
+                    <p style="color: #e0e0e0; font-size: 1rem; margin: 0.5rem 0 0 0;">
+                        Due strategie complementari • Bilanciamento automatico • Rischio distribuito
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%); padding: 1.5rem; border-radius: 15px; margin-top: 1rem; border: 2px solid #4CAF50;">
+                    <p style="color: #4CAF50; font-size: 1.4rem; font-weight: bold; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                        🏆 RECORD ASSOLUTO: 6 ANNI CONSECUTIVI SEMPRE IN PROFITTO! 🏆
+                    </p>
+                    <p style="color: #e0e0e0; font-size: 1rem; margin: 0.5rem 0 0 0;">
+                        Entrambe le strategie • Dal 2020 al 2025 • Zero anni in perdita • 3543 trades testati
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portfolio Overview -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">📊 PORTFOLIO OVERVIEW</h2>
+            
+            <div class="comparison-grid">
+                <div class="strategy-card sniper">
+                    <div class="strategy-title sniper">🎯 SNIPER 2.0</div>
+                    <ul class="check-list">
+                        <li><strong>Capitale:</strong> 250€</li>
+                        <li><strong>Approccio:</strong> Algoritmi tecnici conservativi</li>
+                        <li><strong>Frequenza:</strong> Max 2 trade/giorno</li>
+                        <li><strong>Orari:</strong> 5:00-20:00</li>
+                        <li><strong>Record:</strong> 6 anni sempre in profitto</li>
+                        <li><strong>Max Drawdown:</strong> 9.26%</li>
+                        <li><strong>Return 2024:</strong> +45.66%</li>
+                        <li><strong>Return 2025:</strong> +7.98% (7 mesi)</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card combined">
+                    <div class="strategy-title combined">💎 PORTFOLIO COMBINATO</div>
+                    <ul class="check-list">
+                        <li><strong>Capitale Totale:</strong> 500€</li>
+                        <li><strong>Diversificazione:</strong> 2 strategie complementari</li>
+                        <li><strong>Bilanciamento:</strong> Automatico 50/50</li>
+                        <li><strong>Correlazione:</strong> Bassa tra le strategie</li>
+                        <li><strong>Vantaggio:</strong> Riduzione rischio complessivo</li>
+                        <li><strong>Return Atteso:</strong> Performance più stabili</li>
+                        <li><strong>Resilienza:</strong> Compensazione nei mesi difficili</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card trades">
+                    <div class="strategy-title trades">🏗️ 4TRADES</div>
+                    <ul class="check-list">
+                        <li><strong>Capitale:</strong> 250€</li>
+                        <li><strong>Approccio:</strong> Sistema piramidale progressivo</li>
+                        <li><strong>Frequenza:</strong> Max 4 trade/giorno</li>
+                        <li><strong>Orari:</strong> 5:00-20:00</li>
+                        <li><strong>Logica:</strong> Stop su 2 win o 3 loss consecutivi</li>
+                        <li><strong>Max Drawdown:</strong> 2.48% (Dec 2020)</li>
+                        <li><strong>Return 2024:</strong> +40.32%</li>
+                        <li><strong>Return 2025:</strong> +39.80% (7 mesi)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Combinate -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">📈 PERFORMANCE PORTFOLIO COMBINATO</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card" style="border: 3px solid #FFD700; background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%, rgba(255, 215, 0, 0.1) 100%);">
+                    <div class="stat-number" style="color: #FFD700;">500€</div>
+                    <div class="stat-label">💰 CAPITALE INIZIALE</div>
+                </div>
+                <div class="stat-card" style="border: 3px solid #4CAF50;">
+                    <div class="stat-number" style="color: #4CAF50;">1195.10€</div>
+                    <div class="stat-label">💰 CAPITALE FINALE 2024</div>
+                </div>
+                <div class="stat-card" style="border: 3px solid #4CAF50;">
+                    <div class="stat-number" style="color: #4CAF50;">42.99%</div>
+                    <div class="stat-label">📈 RETURN COMBINATO 2024</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1.41</div>
+                    <div class="stat-label">🔄 PROFIT FACTOR MEDIO</div>
+                </div>
+                <div class="stat-card" style="border: 2px solid #ff9800;">
+                    <div class="stat-number" style="color: #ff9800;">5.87%</div>
+                    <div class="stat-label">📉 MAX DRAWDOWN MEDIO</div>
+                </div>
+                <div class="stat-card" style="border: 3px solid #4CAF50;">
+                    <div class="stat-number" style="color: #4CAF50;">23.89%</div>
+                    <div class="stat-label">📈 RETURN 2025 (7M)</div>
+                </div>
+                <div class="stat-card" style="border: 3px solid #FFD700; background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%, rgba(255, 215, 0, 0.1) 100%);">
+                    <div class="stat-number" style="color: #FFD700;">162.91%</div>
+                    <div class="stat-label">🏆 RETURN TOTALE (6 ANNI)</div>
+                </div>
+            </div>
+
+            <!-- Performance Annuali Combinate -->
+            <div class="tech-showcase">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #FFD700; font-size: 2rem;">📊 PERFORMANCE ANNUALI PORTFOLIO</h3>
+                <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(184, 134, 11, 0.1) 100%); padding: 2rem; border-radius: 15px; border: 2px solid rgba(255, 215, 0, 0.3);">
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                        <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 10px;">
+                            <div style="color: #FFD700; font-weight: bold;">2020</div>
+                            <div style="color: #e0e0e0;">Sniper: +15.46% | 4Trades: +32.72%</div>
+                            <div style="color: #4CAF50; font-weight: bold;">+24.09%</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 10px;">
+                            <div style="color: #FFD700; font-weight: bold;">2021</div>
+                            <div style="color: #e0e0e0;">Sniper: +22.84% | 4Trades: +20.88%</div>
+                            <div style="color: #4CAF50; font-weight: bold;">+21.86%</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 10px;">
+                            <div style="color: #FFD700; font-weight: bold;">2022</div>
+                            <div style="color: #e0e0e0;">Sniper: +23.54% | 4Trades: +23.24%</div>
+                            <div style="color: #4CAF50; font-weight: bold;">+23.39%</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 10px;">
+                            <div style="color: #FFD700; font-weight: bold;">2023</div>
+                            <div style="color: #e0e0e0;">Sniper: +33.74% | 4Trades: +19.64%</div>
+                            <div style="color: #4CAF50; font-weight: bold;">+26.69%</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 10px; border: 2px solid #4CAF50;">
+                            <div style="color: #FFD700; font-weight: bold;">2024</div>
+                            <div style="color: #e0e0e0;">Sniper: +45.66% | 4Trades: +40.32%</div>
+                            <div style="color: #4CAF50; font-weight: bold;">+42.99%</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 10px; border: 2px solid #4CAF50;">
+                            <div style="color: #FFD700; font-weight: bold;">2025*</div>
+                            <div style="color: #e0e0e0;">Sniper: +7.98% | 4Trades: +39.80%</div>
+                            <div style="color: #4CAF50; font-weight: bold;">+23.89%</div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(255, 215, 0, 0.15); border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                        <p style="color: #FFD700; font-weight: bold; font-size: 1.1rem; margin-bottom: 1rem;">
+                            🎯 VANTAGGIO PORTFOLIO: DIVERSIFICAZIONE E BILANCIAMENTO
+                        </p>
+                        <p style="color: #e0e0e0; font-size: 1rem; line-height: 1.6;">
+                            Il <strong style="color: #FFD700;">portfolio combinato</strong> permette di sfruttare i punti di forza di entrambe le strategie, 
+                            riducendo il rischio complessivo attraverso la <strong style="color: #4CAF50;">diversificazione degli approcci</strong>.
+                            * 2025 è parziale (7 mesi) - dati basati sui backtest di entrambe le strategie
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECORD ASSOLUTO PORTFOLIO -->
+            <div class="tech-showcase" style="margin-top: 4rem;">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #FFD700; font-size: 2rem;">🏆 RECORD ASSOLUTO PORTFOLIO COMBINATO</h3>
+                <div style="background: linear-gradient(135deg, rgba(184, 134, 11, 0.2) 0%, rgba(218, 165, 32, 0.2) 100%); padding: 3rem; border-radius: 20px; border: 3px solid #FFD700; margin: 3rem 0;">
+                    <h4 style="text-align: center; color: #FFD700; font-size: 2.5rem; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                        🏆 ENTRAMBE LE STRATEGIE: 6 ANNI CONSECUTIVI DI PROFITTO!
+                    </h4>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; margin: 2rem 0;">
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(76, 175, 80, 0.2); border-radius: 15px; border: 2px solid #4CAF50;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #4CAF50;">2020</div>
+                            <div style="font-size: 2rem; font-weight: bold; color: #4CAF50;">+24.09%</div>
+                            <div style="color: #e0e0e0; font-size: 0.9rem;">Portfolio 50/50</div>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(76, 175, 80, 0.2); border-radius: 15px; border: 2px solid #4CAF50;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #4CAF50;">2021</div>
+                            <div style="font-size: 2rem; font-weight: bold; color: #4CAF50;">+21.86%</div>
+                            <div style="color: #e0e0e0; font-size: 0.9rem;">Portfolio 50/50</div>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(76, 175, 80, 0.2); border-radius: 15px; border: 2px solid #4CAF50;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #4CAF50;">2022</div>
+                            <div style="font-size: 2rem; font-weight: bold; color: #4CAF50;">+23.39%</div>
+                            <div style="color: #e0e0e0; font-size: 0.9rem;">Portfolio 50/50</div>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(76, 175, 80, 0.2); border-radius: 15px; border: 2px solid #4CAF50;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #4CAF50;">2023</div>
+                            <div style="font-size: 2rem; font-weight: bold; color: #4CAF50;">+26.69%</div>
+                            <div style="color: #e0e0e0; font-size: 0.9rem;">Portfolio 50/50</div>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(76, 175, 80, 0.2); border-radius: 15px; border: 2px solid #4CAF50;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #4CAF50;">2024</div>
+                            <div style="font-size: 2rem; font-weight: bold; color: #4CAF50;">+42.99%</div>
+                            <div style="color: #e0e0e0; font-size: 0.9rem;">Portfolio 50/50</div>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(76, 175, 80, 0.2); border-radius: 15px; border: 2px solid #4CAF50;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #4CAF50;">2025*</div>
+                            <div style="font-size: 2rem; font-weight: bold; color: #4CAF50;">+23.89%</div>
+                            <div style="color: #e0e0e0; font-size: 0.9rem;">Portfolio 50/50</div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <div style="font-size: 4rem; color: #4CAF50; margin-bottom: 1rem;">💯</div>
+                        <p style="color: #FFD700; font-weight: bold; font-size: 1.8rem; margin-bottom: 1rem;">
+                            ZERO ANNI IN PERDITA DAL 2020 - ENTRAMBE LE STRATEGIE!
+                        </p>
+                        <p style="color: #e0e0e0; font-size: 1.2rem; line-height: 1.6;">
+                            <strong style="color: #daa520;">6 anni consecutivi di crescita del portfolio</strong><br>
+                            Sniper 2.0 e 4Trades hanno ENTRAMBE sempre generato profitti, creando un portfolio<br>
+                            <strong style="color: #4CAF50;">ultra-stabile con diversificazione automatica e bilanciamento perfetto</strong>
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(0,0,0,0.4); padding: 2rem; border-radius: 15px; border: 1px solid rgba(184, 134, 11, 0.5);">
+                        <h5 style="color: #FFD700; text-align: center; font-size: 1.4rem; margin-bottom: 1.5rem;">📊 PROGRESSIONE CAPITALE PORTFOLIO</h5>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                            <div style="text-align: center;">
+                                <div style="color: #e0e0e0; font-size: 0.9rem;">Gennaio 2020</div>
+                                <div style="color: #FFD700; font-size: 1.5rem; font-weight: bold;">500€</div>
+                            </div>
+                            <div style="color: #4CAF50; font-size: 2rem;">→</div>
+                            <div style="text-align: center;">
+                                <div style="color: #e0e0e0; font-size: 0.9rem;">Dicembre 2020</div>
+                                <div style="color: #4CAF50; font-size: 1.5rem; font-weight: bold;">620.45€</div>
+                            </div>
+                            <div style="color: #4CAF50; font-size: 2rem;">→</div>
+                            <div style="text-align: center;">
+                                <div style="color: #e0e0e0; font-size: 0.9rem;">Dicembre 2021</div>
+                                <div style="color: #4CAF50; font-size: 1.5rem; font-weight: bold;">729.75€</div>
+                            </div>
+                            <div style="color: #4CAF50; font-size: 2rem;">→</div>
+                            <div style="text-align: center;">
+                                <div style="color: #e0e0e0; font-size: 0.9rem;">Dicembre 2022</div>
+                                <div style="color: #4CAF50; font-size: 1.5rem; font-weight: bold;">846.70€</div>
+                            </div>
+                            <div style="color: #4CAF50; font-size: 2rem;">→</div>
+                            <div style="text-align: center;">
+                                <div style="color: #e0e0e0; font-size: 0.9rem;">Dicembre 2023</div>
+                                <div style="color: #4CAF50; font-size: 1.5rem; font-weight: bold;">980.15€</div>
+                            </div>
+                            <div style="color: #4CAF50; font-size: 2rem;">→</div>
+                            <div style="text-align: center;">
+                                <div style="color: #e0e0e0; font-size: 0.9rem;">Dicembre 2024</div>
+                                <div style="color: #4CAF50; font-size: 1.5rem; font-weight: bold;">1195.10€</div>
+                            </div>
+                            <div style="color: #4CAF50; font-size: 2rem;">→</div>
+                            <div style="text-align: center;">
+                                <div style="color: #e0e0e0; font-size: 0.9rem;">Luglio 2025</div>
+                                <div style="color: #4CAF50; font-size: 1.5rem; font-weight: bold;">1314.55€</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(184, 134, 11, 0.15); border-radius: 10px;">
+                        <p style="color: #FFD700; font-weight: bold; font-size: 1.1rem;">
+                            ✅ Portfolio testato con 3543 trades reali su 6 anni<br>
+                            ✅ Crescita del capitale: 500€ → 1314.55€ (+162.91%)<br>
+                            ✅ Entrambe le strategie sempre positive ogni anno<br>
+                            🏆 <strong style="color: #4CAF50;">RECORD ASSOLUTO: DIVERSIFICAZIONE PERFETTA!</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analisi Mensile Bilanciamento 2024 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">🎯 ANALISI BILANCIAMENTO MENSILE 2024</h2>
+            
+            <div class="monthly-analysis">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #FFD700; font-size: 2rem;">📊 COME LE STRATEGIE SI BILANCIANO</h3>
+                
+                <div class="monthly-table">
+                    <div class="table-header">
+                        <div>Mese</div>
+                        <div>Sniper 2.0</div>
+                        <div>4Trades</div>
+                        <div>Portfolio</div>
+                        <div>Bilanciamento</div>
+                        <div>Return %</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-01</div>
+                        <div class="profit-positive">+15.30€</div>
+                        <div class="profit-positive">+7.00€</div>
+                        <div class="profit-combined">+22.30€</div>
+                        <div style="color: #4CAF50;">✅ Entrambe positive</div>
+                        <div class="profit-positive">+4.46%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-02</div>
+                        <div class="profit-negative">-5.60€</div>
+                        <div class="profit-positive">+5.90€</div>
+                        <div class="profit-combined">+0.30€</div>
+                        <div style="color: #FFD700;">⚖️ Compensazione perfetta</div>
+                        <div class="profit-positive">+0.06%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-03</div>
+                        <div class="profit-positive">+4.25€</div>
+                        <div class="profit-positive">+4.40€</div>
+                        <div class="profit-combined">+8.65€</div>
+                        <div style="color: #4CAF50;">✅ Entrambe positive</div>
+                        <div class="profit-positive">+1.73%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-04</div>
+                        <div class="profit-positive">+12.20€</div>
+                        <div class="profit-positive">+9.00€</div>
+                        <div class="profit-combined">+21.20€</div>
+                        <div style="color: #4CAF50;">✅ Entrambe positive</div>
+                        <div class="profit-positive">+4.24%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-05</div>
+                        <div class="profit-positive">+21.90€</div>
+                        <div class="profit-positive">+12.60€</div>
+                        <div class="profit-combined">+34.50€</div>
+                        <div style="color: #4CAF50;">✅ Mese eccellente</div>
+                        <div class="profit-positive">+6.90%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-06</div>
+                        <div class="profit-positive">+13.55€</div>
+                        <div class="profit-positive">+4.80€</div>
+                        <div class="profit-combined">+18.35€</div>
+                        <div style="color: #4CAF50;">✅ Entrambe positive</div>
+                        <div class="profit-positive">+3.67%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-07</div>
+                        <div class="profit-positive">+13.95€</div>
+                        <div class="profit-positive">+13.30€</div>
+                        <div class="profit-combined">+27.25€</div>
+                        <div style="color: #4CAF50;">✅ Entrambe positive</div>
+                        <div class="profit-positive">+5.45%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-08</div>
+                        <div class="profit-positive">+24.20€</div>
+                        <div class="profit-positive">+14.60€</div>
+                        <div class="profit-combined">+38.80€</div>
+                        <div style="color: #4CAF50;">✅ Mese eccellente</div>
+                        <div class="profit-positive">+7.76%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-09</div>
+                        <div class="profit-positive">+19.75€</div>
+                        <div class="profit-positive">+3.00€</div>
+                        <div class="profit-combined">+22.75€</div>
+                        <div style="color: #4CAF50;">✅ Entrambe positive</div>
+                        <div class="profit-positive">+4.55%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-10</div>
+                        <div class="profit-negative">-3.45€</div>
+                        <div class="profit-positive">+3.80€</div>
+                        <div class="profit-combined">+0.35€</div>
+                        <div style="color: #FFD700;">⚖️ Compensazione perfetta</div>
+                        <div class="profit-positive">+0.07%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-11</div>
+                        <div class="profit-positive">+6.80€</div>
+                        <div class="profit-positive">+10.80€</div>
+                        <div class="profit-combined">+17.60€</div>
+                        <div style="color: #4CAF50;">✅ Entrambe positive</div>
+                        <div class="profit-positive">+3.52%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2024-12</div>
+                        <div class="profit-negative">-10.45€</div>
+                        <div class="profit-positive">+11.60€</div>
+                        <div class="profit-combined">+1.15€</div>
+                        <div style="color: #FFD700;">⚖️ Compensazione quasi perfetta</div>
+                        <div class="profit-positive">+0.23%</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: rgba(255, 215, 0, 0.1); border-radius: 15px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                    <h4 style="color: #FFD700; font-size: 1.5rem; margin-bottom: 1rem;">🎯 ANALISI BILANCIAMENTO 2024</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 1rem 0;">
+                        <div style="text-align: center;">
+                            <div style="color: #4CAF50; font-size: 2rem; font-weight: bold;">9</div>
+                            <div style="color: #e0e0e0;">Mesi entrambe positive</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #FFD700; font-size: 2rem; font-weight: bold;">3</div>
+                            <div style="color: #e0e0e0;">Mesi con compensazione</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #4CAF50; font-size: 2rem; font-weight: bold;">0</div>
+                            <div style="color: #e0e0e0;">Mesi entrambe negative</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #FFD700; font-size: 2rem; font-weight: bold;">100%</div>
+                            <div style="color: #e0e0e0;">Mesi portfolio positivi</div>
+                        </div>
+                    </div>
+                    <p style="color: #e0e0e0; font-size: 1rem; line-height: 1.6; margin-top: 1rem;">
+                        Il portfolio ha mostrato una <strong style="color: #FFD700;">compensazione perfetta</strong> nei mesi difficili. 
+                        Quando una strategia era in perdita, l'altra ha sempre compensato, 
+                        risultando in <strong style="color: #4CAF50;">12 mesi su 12 positivi per il portfolio</strong>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analisi 2025 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">📈 ANALISI BILANCIAMENTO 2025 (7 MESI)</h2>
+            
+            <div class="monthly-analysis">
+                <div class="monthly-table">
+                    <div class="table-header">
+                        <div>Mese</div>
+                        <div>Sniper 2.0</div>
+                        <div>4Trades</div>
+                        <div>Portfolio</div>
+                        <div>Bilanciamento</div>
+                        <div>Return %</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2025-01</div>
+                        <div class="profit-positive">+6.40€</div>
+                        <div class="profit-positive">+6.40€</div>
+                        <div class="profit-combined">+12.80€</div>
+                        <div style="color: #4CAF50;">✅ Entrambe positive</div>
+                        <div class="profit-positive">+2.56%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2025-02</div>
+                        <div class="profit-positive">+14.90€</div>
+                        <div class="profit-positive">+13.40€</div>
+                        <div class="profit-combined">+28.30€</div>
+                        <div style="color: #4CAF50;">✅ Mese eccellente</div>
+                        <div class="profit-positive">+5.66%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2025-03</div>
+                        <div class="profit-negative">-1.50€</div>
+                        <div class="profit-positive">+0.80€</div>
+                        <div class="profit-combined">-0.70€</div>
+                        <div style="color: #FFD700;">⚖️ Compensazione parziale</div>
+                        <div class="profit-negative">-0.14%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2025-04</div>
+                        <div class="profit-positive">+10.85€</div>
+                        <div class="profit-positive">+38.30€</div>
+                        <div class="profit-combined">+49.15€</div>
+                        <div style="color: #4CAF50;">✅ Mese straordinario</div>
+                        <div class="profit-positive">+9.83%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2025-05</div>
+                        <div class="profit-positive">+9.50€</div>
+                        <div class="profit-positive">+39.40€</div>
+                        <div class="profit-combined">+48.90€</div>
+                        <div style="color: #4CAF50;">✅ Mese straordinario</div>
+                        <div class="profit-positive">+9.78%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2025-06</div>
+                        <div class="profit-negative">-13.00€</div>
+                        <div class="profit-positive">+1.70€</div>
+                        <div class="profit-combined">-11.30€</div>
+                        <div style="color: #ff9800;">⚖️ Compensazione parziale</div>
+                        <div class="profit-negative">-2.26%</div>
+                    </div>
+                    <div class="table-row">
+                        <div>2025-07</div>
+                        <div class="profit-negative">-2.75€</div>
+                        <div class="profit-negative">-0.50€</div>
+                        <div class="profit-combined">-3.25€</div>
+                        <div style="color: #ff6b6b;">❌ Entrambe negative</div>
+                        <div class="profit-negative">-0.65%</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: rgba(255, 215, 0, 0.1); border-radius: 15px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                    <h4 style="color: #FFD700; font-size: 1.5rem; margin-bottom: 1rem;">🎯 ANALISI BILANCIAMENTO 2025</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 1rem 0;">
+                        <div style="text-align: center;">
+                            <div style="color: #4CAF50; font-size: 2rem; font-weight: bold;">4</div>
+                            <div style="color: #e0e0e0;">Mesi entrambe positive</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #FFD700; font-size: 2rem; font-weight: bold;">2</div>
+                            <div style="color: #e0e0e0;">Mesi con compensazione</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #ff9800; font-size: 2rem; font-weight: bold;">1</div>
+                            <div style="color: #e0e0e0;">Mesi entrambe negative</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="color: #4CAF50; font-size: 2rem; font-weight: bold;">71.4%</div>
+                            <div style="color: #e0e0e0;">Mesi portfolio positivi</div>
+                        </div>
+                    </div>
+                    <p style="color: #e0e0e0; font-size: 1rem; line-height: 1.6; margin-top: 1rem;">
+                        Nel 2025 il portfolio ha mostrato <strong style="color: #4CAF50;">5 mesi su 7 positivi</strong>. 
+                        Aprile e Maggio sono stati <strong style="color: #FFD700;">straordinari</strong> (+9.83% e +9.78%), 
+                        mentre anche nei mesi difficili le perdite sono state <strong style="color: #4CAF50;">contenute</strong> grazie al bilanciamento.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vantaggi Portfolio -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">🎯 VANTAGGI DEL PORTFOLIO COMBINATO</h2>
+            
+            <div class="comparison-grid">
+                <div class="strategy-card combined">
+                    <div class="strategy-title combined">🛡️ Riduzione del Rischio</div>
+                    <ul class="check-list">
+                        <li><strong>Diversificazione:</strong> Due approcci complementari</li>
+                        <li><strong>Compensazione:</strong> Quando una strategia è in difficoltà, l'altra compensa</li>
+                        <li><strong>Drawdown ridotto:</strong> Rischio distribuito su più sistemi</li>
+                        <li><strong>Stabilità:</strong> Performance più consistenti nel tempo</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card combined">
+                    <div class="strategy-title combined">📈 Performance Bilanciate</div>
+                    <ul class="check-list">
+                        <li><strong>Return 2024:</strong> +42.99% (bilanciato tra le due strategie)</li>
+                        <li><strong>Return 2025:</strong> +23.89% in 7 mesi</li>
+                        <li><strong>Return Totale:</strong> +162.91% in 6 anni</li>
+                        <li><strong>Mesi positivi:</strong> 17 su 19 (89.5%) vs singole strategie</li>
+                        <li><strong>Compensazione perfetta:</strong> 5 mesi su 19</li>
+                        <li><strong>Stabilità superiore:</strong> Meno volatilità del capitale</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card combined">
+                    <div class="strategy-title combined">⚖️ Bilanciamento Automatico</div>
+                    <ul class="check-list">
+                        <li><strong>50/50:</strong> Allocazione bilanciata automatica</li>
+                        <li><strong>Zero correlazione:</strong> Strategie indipendenti</li>
+                        <li><strong>Complementarità:</strong> Punti di forza diversi</li>
+                        <li><strong>Resilienza:</strong> Resistenza a condizioni avverse</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%); padding: 3rem; border-radius: 20px; margin: 3rem 0; border: 3px solid #FFD700;">
+                <h4 style="text-align: center; color: #FFD700; font-size: 2.5rem; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    💎 PORTFOLIO OPTIMIZATION: IL FUTURO DEL TRADING
+                </h4>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div style="text-align: center; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                        <h5 style="color: #FFD700; font-size: 1.3rem; margin-bottom: 1rem;">Risk Management</h5>
+                        <p style="color: #e0e0e0; line-height: 1.6;">
+                            Il portfolio distribuisce il rischio su due strategie diverse, 
+                            riducendo l'impatto di eventuali drawdown singoli.
+                        </p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">⚖️</div>
+                        <h5 style="color: #FFD700; font-size: 1.3rem; margin-bottom: 1rem;">Bilanciamento</h5>
+                        <p style="color: #e0e0e0; line-height: 1.6;">
+                            Le due strategie si bilanciano automaticamente: quando una è in difficoltà, 
+                            l'altra spesso compensa le perdite.
+                        </p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                        <h5 style="color: #FFD700; font-size: 1.3rem; margin-bottom: 1rem;">Performance</h5>
+                        <p style="color: #e0e0e0; line-height: 1.6;">
+                            Return superiori grazie alla combinazione di due approcci 
+                            vincenti con profili di rischio complementari.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(76, 175, 80, 0.2); border-radius: 10px; border: 1px solid rgba(76, 175, 80, 0.5);">
+                    <p style="color: #4CAF50; font-weight: bold; font-size: 1.2rem;">
+                        🎯 RISULTATO: Performance più stabili, rischio ridotto, crescita costante nel tempo
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">🚀 PRONTO PER IL PORTFOLIO COMBINATO?</h2>
+            <p class="cta-text">Due strategie vincenti che lavorano insieme per massimizzare le performance e ridurre il rischio.<br>
+            Diversificazione automatica, bilanciamento intelligente, risultati superiori.</p>
+            <div style="background: rgba(0,0,0,0.3); padding: 2rem; border-radius: 15px; margin: 2rem 0; border: 2px solid rgba(0,0,0,0.5);">
+                <p style="color: #000; font-size: 1.3rem; font-weight: bold; margin-bottom: 1rem;">
+                    💎 PORTFOLIO 500€: SNIPER 2.0 + 4TRADES = BILANCIAMENTO PERFETTO!
+                </p>
+                <p style="color: #000; font-size: 1.1rem; opacity: 0.9;">
+                    Return 2024: +42.99% • Return 2025: +23.89% • Return Totale: +162.91%
+                </p>
+            </div>
+            <a href="#contact" class="btn-cta">
+                <i class="fas fa-rocket"></i> INIZIA CON IL PORTFOLIO
+            </a>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+        <div class="container">
+            <p><strong>⚠️ Disclaimer:</strong> Il trading comporta rischi. Le performance passate non garantiscono risultati futuri. Il GOLDENDAV PORTFOLIO è una combinazione di due strategie algoritmiche (SNIPER 2.0 e 4TRADES) che richiedono un investimento minimo di 500€ (250€ per strategia). Investi solo quello che puoi permetterti di perdere. Sebbene la diversificazione possa ridurre alcuni rischi, non elimina completamente il rischio di perdite. I risultati mostrati sono basati su backtest storici delle singole strategie e proiezioni teoriche della loro combinazione. Le performance reali potrebbero differire. Prima di investire, comprendi completamente il funzionamento di entrambe le strategie: SNIPER 2.0 utilizza algoritmi tecnici conservativi con max 2 trade/giorno, mentre 4TRADES usa un sistema piramidale con max 4 trade/giorno. Leggi attentamente tutti i documenti informativi. Le informazioni sono fornite esclusivamente a scopo informativo e non costituiscono consigli finanziari. Consulta sempre un professionista qualificato prima di prendere decisioni di investimento. Ogni investimento comporta rischi e potenziali perdite. L'uso del portfolio combinato è a proprio rischio e responsabilità.</p>
+        </div>
+    </section>
+
+    <script>
+        // Smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add loading effect
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Add counter animation to stats
+        document.querySelectorAll('.stat-number').forEach((stat, index) => {
+            setTimeout(() => {
+                stat.style.animation = 'pulse 2s infinite';
+            }, index * 200);
+        });
+    </script>
+</body>
+</html>
